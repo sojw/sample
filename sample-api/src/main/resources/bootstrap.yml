@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sample-api
+  profiles:
+    active: standalone
+  main:
+    allow-bean-definition-overriding: true
+

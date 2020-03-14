@@ -1,0 +1,89 @@
+
+server:
+  port: 8080
+  undertow:
+    ioThreads: 30
+    workerThreads: 240
+    connectionTimeout: 50
+  compression:
+    enabled: true
+    mimeTypes: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+
+security:
+  basic:
+    enabled: false
+  ignored: /**
+
+management:
+  server:
+    port : 9999
+  health:
+    defaults:
+      enabled: true
+    elasticsearch:
+      enabled: false
+    db:
+      enabled: false
+    redis:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, beans, info, env, httptrace, mappings, togglz
+  endpoint:
+    health:
+      show-details: ALWAYS
+      
+      
+spring:
+  datasource:
+    hikari:
+      username: pfm_dev
+      password: pfm1234
+      poolName: hikari-cp
+      url: jdbc:log4jdbc:mysql://10.127.45.75:20306/pfm?useUnicode=true&characterEncoding=utf8&connectionCollation=utf8mb4_unicode_ci&connectTimeout=60000&socketTimeout=60000&autoReconnect=true&useSSL=false
+      jdbcUrl: jdbc:log4jdbc:mysql://10.127.45.75:20306/pfm?useUnicode=true&characterEncoding=utf8&connectionCollation=utf8mb4_unicode_ci&connectTimeout=60000&socketTimeout=60000&autoReconnect=true&useSSL=false
+      driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      registerMbeans: true
+      connectionTimeout: 30000
+      validationTimeout: 5000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+      maximumPoolSize: 20
+      minimumIdle: 3
+      leakDetectionThreshold: 0
+      initializationFailTimeout: 1
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jmx:
+    enabled: false
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: mysql
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+        hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+        hibernate.cache.use_second_level_cache: false
+        hibernate.generate_statistics: false
+        hibernate.hbm2ddl.auto: none
+        hibernate.use_sql_comments: true
+        hibernate.format_sql: true
+  security:
+    user:
+      name: user
+      password: user1234
+      roles : ADMIN
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /swagger/api-docs

@@ -1,0 +1,14 @@
+<configuration debug="true" scan="true" scanPeriod="30 seconds">
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+          <charset>UTF-8</charset>
+          <pattern>%d{HH:mm:ss.SSS} [${APP_NAME},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] [%thread] [%-5level]\(%file:%line\) %logger{36} %M:%L - %msg%n%ex</pattern>
+      </encoder>
+  </appender>
+    
+
+  <root level="DEBUG">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
