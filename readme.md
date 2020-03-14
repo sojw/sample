@@ -7,10 +7,12 @@
   - java 8
   - spring, springboot
   - mysql
+- config
+  - mysql : https://github.com/sojw/sample/blob/master/sample-api/src/main/resources/application.yml#L46 db 연결정보 수정
 - build
   - maven clean install
 - run
-  - java -j sample-api-1.0.0-SNAPSHOT.jar.jar
+  - java -jar sample-api/exe-jar/sample-api-1.0.0-SNAPSHOT.jar.jar
 
 
 ## api list
