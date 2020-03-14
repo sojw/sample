@@ -77,8 +77,8 @@ public class HousingFundService {
 			}).collect(Collectors.toList());
 
 		return result;
-
 	}
+	
 
 	public FundTopBankDTO findFundTopBank() {
 		List<HousingFund> housingFundList = housingFundRepository.findAll();
