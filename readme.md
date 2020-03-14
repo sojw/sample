@@ -29,13 +29,23 @@ csv file의 header정보를 토대로 bank 생성 된 은행 정보를 반환.
 
 
 - /fund-amount-sum
-
+HousingFund table의 모든 data를 list반환
+연도(fundYear)로 stream grouping 처리
+(1) 전체 총액
+(2) 금융기관별 총액
 
 - /fund-top-bank
+HousingFund table의 모든 data를 list반환
+연도(fundYear) + 금융기관code(bankSeq)로 stream grouping 처리
+해당 연도의 금융기관의 펀딩총액을 list로 변환.
+가장 큰 펀딩총액을 stream max로 반환.
 
 
 - /fund-bank-avg
-
+외환은행의 모든 data를 list반환
+연도별 펀딩 평균값 list 생성
+평균값 기준으로 연도별 펀딩 평균값 list sort처리
+list 가장 처음(min), 가장 마지막(max) element를 반환
 
 
 ## database
